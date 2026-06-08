@@ -15,9 +15,8 @@ def normalize_answer(text: str) -> str:
     return " ".join(text.strip().lower().split())
 
 
-def check_answer(word: Word, user_input: str, reverse: bool = False) -> bool:
-    expected = word.term if reverse else word.meaning
-    return normalize_answer(user_input) == normalize_answer(expected)
+def check_answer(word: Word, user_input: str) -> bool:
+    return normalize_answer(user_input) == normalize_answer(word.meaning)
 
 
 def draw_word(words: list[Word], rng: random.Random | None = None) -> Word:
